@@ -133,13 +133,13 @@ namespace MediaOrganizer
 
                 int iconNumber = 4;
 
-                if (file.Extension.ToLower() == ".jpg" || file.Extension.ToLower() == ".jpg") { iconNumber = 2; }
-                if (file.Extension.ToLower() == ".avi" || file.Extension.ToLower() == ".mov" || file.Extension.ToLower() == ".mp4" || file.Extension.ToLower() == ".3gp") { iconNumber = 3; }
+                if (MediaFunctions.isImageFile(file.Extension)) { iconNumber = 2; }
+                if (MediaFunctions.isVideoFile(file.Extension)) { iconNumber = 3; }
 
                 item = new ListViewItem(file.Name, iconNumber);
 
                 String takenDateString;
-                if (file.Extension.ToLower() == ".jpg" || file.Extension.ToLower() == ".jpeg") { takenDateString = GetDateTakenFromImage(file.FullName); }
+                if (MediaFunctions.isImageFile(file.Extension)) { takenDateString = GetDateTakenFromImage(file.FullName); }
                 else { takenDateString = ""; }
 
                 subItems = new ListViewItem.ListViewSubItem[]
@@ -185,7 +185,7 @@ namespace MediaOrganizer
                 //PropertyItem propItem = null;
                 var propItem = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem));
 
-                propItem.Id=36867;
+                propItem.Id= 36867;
                 propItem.Len = 20;
                 propItem.Type = 2;
                 propItem.Value = _Encoding.GetBytes(newDate.ToString("yyyy:MM:dd HH:mm:ss") + '\0');
@@ -272,7 +272,7 @@ namespace MediaOrganizer
                             newDate = file.CreationTimeUtc; break;
                         case "Modified Date":
                             newDate = file.LastWriteTimeUtc; break;
-                        case "Accesed Date":
+                        case "Accessed Date":
                             newDate = file.LastAccessTimeUtc; break;
                         case "Taken Date":
                             newDate = DateTime.Parse(GetDateTakenFromImage(filePath)); break;
@@ -299,16 +299,16 @@ namespace MediaOrganizer
                 file = new FileInfo(filePath);
                 DateTime createdDate = file.CreationTimeUtc;
                 DateTime modifiedDate = file.LastWriteTimeUtc;
-                DateTime accesedDate = file.LastAccessTimeUtc;
+                DateTime accessedDate = file.LastAccessTimeUtc;
                 //file = null;
 
-                if (chb_takenDate.Checked == true && file.Extension.ToLower() == ".jpg")
+                if (chb_takenDate.Checked == true && MediaFunctions.isImageFile(file.Extension))
                 {
                     SetDateTakenFromImage(filePath, newDate);
                     //file = new FileInfo(filePath);
                     file.CreationTimeUtc = createdDate;
                     file.LastWriteTimeUtc = modifiedDate;
-                    file.LastAccessTimeUtc = accesedDate;
+                    file.LastAccessTimeUtc = accessedDate;
                     //file = null;
                 }
 
@@ -316,7 +316,7 @@ namespace MediaOrganizer
 
                 if (chb_createdDate.Checked == true) { file.CreationTimeUtc = newDate; }
                 if (chb_modifiedDate.Checked == true) { file.LastWriteTimeUtc = newDate; }
-                if (chb_accesedDate.Checked == true) { file.LastAccessTimeUtc = newDate; }
+                if (chb_accessedDate.Checked == true) { file.LastAccessTimeUtc = newDate; }
             }
 
             treeView1_NodeMouseClick(null, currentNode);

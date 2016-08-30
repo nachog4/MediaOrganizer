@@ -46,7 +46,7 @@
             this.chb_overwrite = new System.Windows.Forms.CheckBox();
             this.chb_createdDate = new System.Windows.Forms.CheckBox();
             this.chb_modifiedDate = new System.Windows.Forms.CheckBox();
-            this.chb_accesedDate = new System.Windows.Forms.CheckBox();
+            this.chb_accessedDate = new System.Windows.Forms.CheckBox();
             this.chb_takenDate = new System.Windows.Forms.CheckBox();
             this.txt_filenamePattern = new System.Windows.Forms.TextBox();
             this.chb_filenameDate = new System.Windows.Forms.CheckBox();
@@ -219,15 +219,15 @@
             this.chb_modifiedDate.Text = "Modified Date";
             this.chb_modifiedDate.UseVisualStyleBackColor = true;
             // 
-            // chb_accesedDate
+            // chb_accessedDate
             // 
-            this.chb_accesedDate.AutoSize = true;
-            this.chb_accesedDate.Location = new System.Drawing.Point(6, 53);
-            this.chb_accesedDate.Name = "chb_accesedDate";
-            this.chb_accesedDate.Size = new System.Drawing.Size(94, 17);
-            this.chb_accesedDate.TabIndex = 7;
-            this.chb_accesedDate.Text = "Accesed Date";
-            this.chb_accesedDate.UseVisualStyleBackColor = true;
+            this.chb_accessedDate.AutoSize = true;
+            this.chb_accessedDate.Location = new System.Drawing.Point(6, 53);
+            this.chb_accessedDate.Name = "chb_accessedDate";
+            this.chb_accessedDate.Size = new System.Drawing.Size(99, 17);
+            this.chb_accessedDate.TabIndex = 7;
+            this.chb_accessedDate.Text = "Accessed Date";
+            this.chb_accessedDate.UseVisualStyleBackColor = true;
             // 
             // chb_takenDate
             // 
@@ -328,7 +328,7 @@
             // 
             this.groupBox1.Controls.Add(this.chb_createdDate);
             this.groupBox1.Controls.Add(this.chb_modifiedDate);
-            this.groupBox1.Controls.Add(this.chb_accesedDate);
+            this.groupBox1.Controls.Add(this.chb_accessedDate);
             this.groupBox1.Controls.Add(this.chb_takenDate);
             this.groupBox1.Location = new System.Drawing.Point(790, 9);
             this.groupBox1.Name = "groupBox1";
@@ -479,7 +479,7 @@
         private System.Windows.Forms.CheckBox chb_overwrite;
         private System.Windows.Forms.CheckBox chb_createdDate;
         private System.Windows.Forms.CheckBox chb_modifiedDate;
-        private System.Windows.Forms.CheckBox chb_accesedDate;
+        private System.Windows.Forms.CheckBox chb_accessedDate;
         private System.Windows.Forms.CheckBox chb_takenDate;
         private System.Windows.Forms.TextBox txt_filenamePattern;
         private System.Windows.Forms.CheckBox chb_filenameDate;
