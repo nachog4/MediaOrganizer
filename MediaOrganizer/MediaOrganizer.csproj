@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MediaFunctions.cs" />
     <Compile Include="MediaOrganizer.cs">
       <SubType>Form</SubType>
     </Compile>

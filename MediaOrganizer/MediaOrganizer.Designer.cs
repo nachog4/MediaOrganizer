@@ -65,6 +65,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txt_log = new System.Windows.Forms.TextBox();
+            this.chb_mediaOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -180,7 +181,7 @@
             // 
             // cmd_changeDate
             // 
-            this.cmd_changeDate.Location = new System.Drawing.Point(213, 19);
+            this.cmd_changeDate.Location = new System.Drawing.Point(213, 17);
             this.cmd_changeDate.Name = "cmd_changeDate";
             this.cmd_changeDate.Size = new System.Drawing.Size(115, 23);
             this.cmd_changeDate.TabIndex = 3;
@@ -191,7 +192,7 @@
             // chb_overwrite
             // 
             this.chb_overwrite.AutoSize = true;
-            this.chb_overwrite.Location = new System.Drawing.Point(6, 22);
+            this.chb_overwrite.Location = new System.Drawing.Point(6, 19);
             this.chb_overwrite.Name = "chb_overwrite";
             this.chb_overwrite.Size = new System.Drawing.Size(77, 17);
             this.chb_overwrite.TabIndex = 4;
@@ -309,7 +310,7 @@
             // 
             this.pic_imagePreview.Location = new System.Drawing.Point(6, 17);
             this.pic_imagePreview.Name = "pic_imagePreview";
-            this.pic_imagePreview.Size = new System.Drawing.Size(115, 73);
+            this.pic_imagePreview.Size = new System.Drawing.Size(116, 73);
             this.pic_imagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_imagePreview.TabIndex = 16;
             this.pic_imagePreview.TabStop = false;
@@ -365,6 +366,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chb_mediaOnly);
             this.groupBox4.Controls.Add(this.chb_overwrite);
             this.groupBox4.Location = new System.Drawing.Point(695, 9);
             this.groupBox4.Name = "groupBox4";
@@ -412,7 +414,17 @@
             this.txt_log.Size = new System.Drawing.Size(255, 75);
             this.txt_log.TabIndex = 0;
             // 
-            // Form1
+            // chb_mediaOnly
+            // 
+            this.chb_mediaOnly.AutoSize = true;
+            this.chb_mediaOnly.Location = new System.Drawing.Point(6, 36);
+            this.chb_mediaOnly.Name = "chb_mediaOnly";
+            this.chb_mediaOnly.Size = new System.Drawing.Size(85, 17);
+            this.chb_mediaOnly.TabIndex = 5;
+            this.chb_mediaOnly.Text = "Media Only?";
+            this.chb_mediaOnly.UseVisualStyleBackColor = true;
+            // 
+            // MediaOrganizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -425,7 +437,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "MediaOrganizer";
             this.Text = "MediaOrganizer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -486,6 +498,7 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txt_log;
+        private System.Windows.Forms.CheckBox chb_mediaOnly;
     }
 }
 

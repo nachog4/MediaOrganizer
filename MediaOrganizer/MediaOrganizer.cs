@@ -129,6 +129,8 @@ namespace MediaOrganizer
             }
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
+                if (chb_mediaOnly.Checked) { if (!MediaFunctions.isMediaFile(file.Extension)) { continue; } }
+
                 int iconNumber = 4;
 
                 if (file.Extension.ToLower() == ".jpg" || file.Extension.ToLower() == ".jpg") { iconNumber = 2; }
@@ -365,7 +367,10 @@ namespace MediaOrganizer
                 if (lsv_files.FocusedItem.SubItems[5].ToString().ToLower().Contains(".jpg"))
                 {
                     string imagePath = lsv_files.FocusedItem.SubItems[5].Text;
-                    pic_imagePreview.Image = new Bitmap(imagePath);
+                    //pic_imagePreview.Image = new Bitmap(imagePath);
+
+                    Image img;
+                    using (var bmpTemp = new Bitmap(imagePath)) { img = new Bitmap(bmpTemp); pic_imagePreview.Image = img; }
 
                 }
             }
