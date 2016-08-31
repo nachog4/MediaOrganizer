@@ -48,6 +48,7 @@ namespace MediaOrganizer
 
             dtp_newDate.Format = DateTimePickerFormat.Custom;
             dtp_newDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+
         }
 
         private void PopulateTreeView()
@@ -255,6 +256,7 @@ namespace MediaOrganizer
                 string filePath = item.SubItems[5].Text;
                 string filePathDestination = item.SubItems[6].Text + "\\adjusted\\" + item.Text;
 
+                //TAKE DATE FROM FILENAME
                 if (chb_filenameDate.Checked)
                 {
                     newDate = GetDateFromFilename(item.Text);
@@ -262,6 +264,7 @@ namespace MediaOrganizer
 
                 FileInfo file = null;
 
+                //TAKE DATE FROM ANOTHER FIELD
                 if (chb_dateFromOther.Checked)
                 {
                     file = new FileInfo(filePath);
@@ -283,6 +286,14 @@ namespace MediaOrganizer
                     file = null;
                 }
 
+                //TAKE DATE FROM DATEDIFF CALCULATION
+                if (chb_dateDiff.Checked)
+                {
+                    int secondsDiff = Convert.ToInt32(txt_dateDiff.Text);
+                    newDate = newDate.AddSeconds(secondsDiff);
+                }
+
+                //OVERWRITE FILE
                 if (overWrite == false)
                 {
                     if (System.IO.Directory.Exists(item.SubItems[6].Text + "\\adjusted\\") == false)
@@ -302,6 +313,7 @@ namespace MediaOrganizer
                 DateTime accessedDate = file.LastAccessTimeUtc;
                 //file = null;
 
+                //CHANGE TAKEN DATE
                 if (chb_takenDate.Checked == true && MediaFunctions.isImageFile(file.Extension))
                 {
                     SetDateTakenFromImage(filePath, newDate);
@@ -314,6 +326,7 @@ namespace MediaOrganizer
 
                 //file = new FileInfo(filePath);
 
+                //CHANGE FILE DATES
                 if (chb_createdDate.Checked == true) { file.CreationTimeUtc = newDate; }
                 if (chb_modifiedDate.Checked == true) { file.LastWriteTimeUtc = newDate; }
                 if (chb_accessedDate.Checked == true) { file.LastAccessTimeUtc = newDate; }
@@ -390,7 +403,7 @@ namespace MediaOrganizer
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            splitContainer1.Height = this.Height - 150;
+            splitContainer1.Height = this.Height - 175;
         }
 
         private void lsv_files_DoubleClick(object sender, EventArgs e)
@@ -402,6 +415,12 @@ namespace MediaOrganizer
                 TreeNodeMouseClickEventArgs newArgs = new TreeNodeMouseClickEventArgs(newNode, MouseButtons.Right, 2, 10, 10);
                 treeView1_NodeMouseClick(null, newArgs);
             }
+        }
+
+        private void cmd_dateDiffCalculator_Click(object sender, EventArgs e)
+        {
+            DateDiffCalculator dateDiffCalculator = new DateDiffCalculator();
+            dateDiffCalculator.Show();
         }
     }
 }
