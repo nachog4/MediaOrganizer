@@ -22,6 +22,7 @@ namespace MediaOrganizer
                 case ".mp4": result = true; break;
                 case ".avi": result = true; break;
                 case ".3gp": result = true; break;
+                case ".mpg": result = true; break;
                 default: result = false; break;
             }
 
@@ -55,6 +56,7 @@ namespace MediaOrganizer
                 case ".mp4": result = true; break;
                 case ".avi": result = true; break;
                 case ".3gp": result = true; break;
+                case ".mpg": result = true; break;
                 default: result = false; break;
             }
 
